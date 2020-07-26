@@ -1,42 +1,61 @@
 import 'package:flutter/material.dart';
 
 myApp(){
-   var mytext=Text(
-    "Home Page",
-    textDirection:TextDirection.ltr,
-    textAlign: TextAlign.center,
-    );
-    myPress(){
-    print("The button is pressed");
-  }
 
-  var myassesmenticon=Icon(Icons.assessment,
-                         color:Colors.grey.shade600);
-  var myEmailIcon=Icon(Icons.email);
-  var myEmailButton=IconButton(icon:myEmailIcon,onPressed:myPress);
-  var myassesmentbutton=IconButton(icon:myassesmenticon,onPressed: null,);
-  var myappbar=AppBar(
-    title:mytext,
-    backgroundColor: Colors.black,
-    leading:myassesmenticon,
-    actions:<Widget>[
-      myEmailButton,
-      myassesmentbutton],
-    );
-    var url="https://raw.githubusercontent.com/khushbuSinha29/Myfirstupload/master/pic.jpg";
+var mybody = Container(
+ width:300,
+  height: 300,
+  //color: Colors.cyan,
+  child: Text("Flower",
+  style: TextStyle(
+   fontSize: 50.0,
+   fontStyle: FontStyle.italic,
+   color: Colors.indigo
+  ),),
+  alignment: Alignment.bottomCenter,
+
+  decoration: BoxDecoration(
+    image: DecorationImage(
+      fit: BoxFit.cover,
+      image:NetworkImage("https://raw.githubusercontent.com/khushbuSinha29/Myfirstupload/master/pic.jpg"
+      )
+       ,),
+       borderRadius: BorderRadius.circular(20.0),
+       border: Border.all(
+         width: 5,
+         color: Colors.grey,
+       )
   
-  var myimage=Image.network(
-    url,
-    width: double.infinity,
-    height:double.infinity);
-    
-    var myhome=Scaffold(
-      appBar: myappbar,
-      body:myimage,
-      backgroundColor:Colors.grey,);
+  ),
+  
+  // constraints: BoxConstraints(
+  //   maxHeight:400.0,
+  //   maxWidth: 200.0,
+  //   minHeight: 250.0,
+  //   minWidth: 250.0 ),
+  
+  // margin: EdgeInsets.symmetric(
+  //   vertical:20.0,
+   // horizontal:50.0
+  // ),
+  // transform: Matrix4.rotationZ(0.5),
 
-   var design =MaterialApp(home:myhome);
+);
 
- 
-  return design;
-}
+
+  var myhome = Scaffold(
+    appBar: AppBar(
+      title: Text("Flower Wallpaper"),
+      ),
+      body : Center(child: mybody),
+      backgroundColor: Colors.brown,
+      
+        );
+      
+      
+        var design = MaterialApp(
+          home : myhome,
+          title: "My Application",
+          );
+        return design ;
+      }
